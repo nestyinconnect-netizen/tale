@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Nestyin Connect — Explore</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+  <div class="logo">
+    NESTYIN<span>CONNECT</span>
+  </div>
+
+  <nav>
+
+    <a
+      href="index.html"
+      class="active"
+    >
+      Explore
+    </a>
+
+    <a href="#case-studies">
+      Case Studies
+    </a>
+
+    <a href="#projects">
+      Projects
+    </a>
+
+  </nav>
+
+</header>
+
+
+
+<main>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      REAL-WORLD PROBLEMS & PROJECTS
+    </div>
+
+
+    <h1>
+      Explore.<br>
+      <span>Build. Solve. Grow.</span>
+    </h1>
+
+
+    <p>
+      Find real-world problems and project
+      opportunities to build your skills
+      and receive professional feedback.
+    </p>
+
+
+    <div class="search-box">
+
+      <span>⌕</span>
+
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search problems, projects, skills..."
+      >
+
+    </div>
+
+
+    <!-- TEMPORARY WORKER TEST BUTTON -->
+
+    <button
+  id="workerTestButton"
+  onclick="testWorker()"
+  style="
+    margin-top:20px;
+    padding:12px 20px;
+    border:0;
+    border-radius:8px;
+    background:#6941c6;
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+  "
+>
+  Test Cloudflare Submission
+</button>
+
+
+  </div>
+
+</section>
+
+
+
+<section class="content">
+
+
+<!-- FILTERS -->
+
+<div class="filters">
+
+  <button
+    class="filter active"
+    data-filter="all"
+  >
+    All
+  </button>
+
+
+  <button
+    class="filter"
+    data-filter="case"
+  >
+    Case Studies
+  </button>
+
+
+  <button
+    class="filter"
+    data-filter="project"
+  >
+    Projects
+  </button>
+
+
+  <button
+    class="filter"
+    data-filter="public"
+  >
+    Public
+  </button>
+
+
+  <button
+    class="filter"
+    data-filter="private"
+  >
+    Private
+  </button>
+
+</div>
+
+
+
+<!-- CASE STUDIES -->
+
+<section
+  class="section"
+  id="case-studies"
+>
+
+  <div class="section-header">
+
+    <div>
+
+      <div class="section-label purple">
+        CASE STUDIES
+      </div>
+
+      <h2>
+        Real problems to solve
+      </h2>
+
+    </div>
+
+
+    <a href="#case-studies">
+      View all →
+    </a>
+
+  </div>
+
+
+
+  <div class="cards">
+
+
+    <!-- CASE STUDY 1 -->
+
+    <article
+      class="card searchable case-item"
+    >
+
+      <div class="badge case">
+        🟣 CASE STUDY
+      </div>
+
+
+      <h3>
+        Scaling a Payment Platform
+      </h3>
+
+
+      <p>
+        A rapidly growing payment company is
+        experiencing increasing latency during
+        peak transaction periods.
+      </p>
+
+
+      <div class="company">
+        Acme Technologies
+      </div>
+
+
+      <div class="tags">
+
+        <span>Payments</span>
+        <span>Backend</span>
+        <span>AWS</span>
+        <span>System Design</span>
+
+      </div>
+
+
+      <div class="card-info">
+
+        <span>★ 4.7</span>
+
+        <span>342 attempts</span>
+
+        <span>Expert feedback</span>
+
+      </div>
+
+
+      <div class="card-footer">
+
+        <div>
+
+          <a
+            href="case-study.html"
+            class="secondary"
+          >
+            View
+          </a>
+
+          <a
+            href="solve-case-study.html"
+            class="primary"
+          >
+            Solve Case Study
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- CASE STUDY 2 -->
+
+    <article
+      class="card searchable case-item"
+    >
+
+      <div class="badge case">
+        🟣 CASE STUDY
+      </div>
+
+
+      <h3>
+        Recommendation System at Scale
+      </h3>
+
+
+      <p>
+        Design a recommendation engine capable
+        of serving millions of users while
+        keeping response times low.
+      </p>
+
+
+      <div class="company">
+        Nova Commerce
+      </div>
+
+
+      <div class="tags">
+
+        <span>AI</span>
+        <span>ML</span>
+        <span>Python</span>
+        <span>Data</span>
+
+      </div>
+
+
+      <div class="card-info">
+
+        <span>★ 4.8</span>
+
+        <span>218 attempts</span>
+
+        <span>Expert feedback</span>
+
+      </div>
+
+
+      <div class="card-footer">
+
+        <div>
+
+          <a
+            href="case-study.html"
+            class="secondary"
+          >
+            View
+          </a>
+
+          <a
+            href="solve-case-study.html"
+            class="primary"
+          >
+            Solve Case Study
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- CASE STUDY 3 -->
+
+    <article
+      class="card searchable case-item"
+    >
+
+      <div class="badge case">
+        🟣 CASE STUDY
+      </div>
+
+
+      <h3>
+        Reducing Cloud Infrastructure Costs
+      </h3>
+
+
+      <p>
+        A SaaS company wants to reduce its
+        cloud bill by 30% without compromising
+        application performance.
+      </p>
+
+
+      <div class="company">
+        CloudScale Inc.
+      </div>
+
+
+      <div class="tags">
+
+        <span>AWS</span>
+        <span>DevOps</span>
+        <span>FinOps</span>
+
+      </div>
+
+
+      <div class="card-info">
+
+        <span>★ 4.6</span>
+
+        <span>156 attempts</span>
+
+        <span>Expert feedback</span>
+
+      </div>
+
+
+      <div class="card-footer">
+
+        <div>
+
+          <a
+            href="case-study.html"
+            class="secondary"
+          >
+            View
+          </a>
+
+          <a
+            href="solve-case-study.html"
+            class="primary"
+          >
+            Solve Case Study
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- CASE STUDY 4 -->
+
+    <article
+      class="card searchable case-item"
+    >
+
+      <div class="badge case">
+        🟣 CASE STUDY
+      </div>
+
+
+      <h3>
+        Multi-Tenant SaaS Architecture
+      </h3>
+
+
+      <p>
+        Design a secure and scalable architecture
+        supporting thousands of business customers.
+      </p>
+
+
+      <div class="company">
+        Orbit Software
+      </div>
+
+
+      <div class="tags">
+
+        <span>Architecture</span>
+        <span>Backend</span>
+        <span>SaaS</span>
+
+      </div>
+
+
+      <div class="card-info">
+
+        <span>★ 4.9</span>
+
+        <span>403 attempts</span>
+
+        <span>Expert feedback</span>
+
+      </div>
+
+
+      <div class="card-footer">
+
+        <div>
+
+          <a
+            href="case-study.html"
+            class="secondary"
+          >
+            View
+          </a>
+
+          <a
+            href="solve-case-study.html"
+            class="primary"
+          >
+            Solve Case Study
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+
+<!-- PROJECTS -->
+
+<section
+  class="section"
+  id="projects"
+>
+
+  <div class="section-header">
+
+    <div>
+
+      <div class="section-label green">
+        PROJECTS
+      </div>
+
+      <h2>
+        Build with real companies
+      </h2>
+
+    </div>
+
+
+    <a href="#projects">
+      View all →
+    </a>
+
+  </div>
+
+
+
+  <div class="cards">
+
+
+    <!-- PUBLIC PROJECT 1 -->
+
+    <article
+      class="card searchable project-item public-item"
+    >
+
+      <div class="badge public">
+        🟢 PUBLIC
+      </div>
+
+
+      <h3>
+        Build a Scalable Payment API
+      </h3>
+
+
+      <p>
+        Build a production-ready payment API
+        with authentication, transaction processing
+        and monitoring.
+      </p>
+
+
+      <div class="company">
+        Sponsored by Acme Technologies
+      </div>
+
+
+      <div class="tags">
+
+        <span>Backend</span>
+        <span>AWS</span>
+        <span>API</span>
+        <span>System Design</span>
+
+      </div>
+
+
+      <div class="project-meta">
+
+        <span>Intermediate</span>
+
+        <span>Deadline: Sep 28</span>
+
+      </div>
+
+
+      <div class="card-footer">
+
+        <span class="evaluation">
+          ✓ Expert evaluation
+        </span>
+
+
+        <a
+          href="public-project.html"
+          class="primary"
+        >
+          Apply
+        </a>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- PRIVATE PROJECT 1 -->
+
+    <article
+      class="card searchable project-item private-item"
+    >
+
+      <div class="badge private">
+        🔒 PRIVATE
+      </div>
+
+
+      <h3>
+        Enterprise AI Challenge
+      </h3>
+
+
+      <p>
+        Help build an NLP-powered internal
+        knowledge assistant for enterprise teams.
+      </p>
+
+
+      <div class="company">
+        Sponsored by Acme Technologies
+      </div>
+
+
+      <div class="tags">
+
+        <span>AI</span>
+        <span>NLP</span>
+        <span>Python</span>
+        <span>Machine Learning</span>
+
+      </div>
+
+
+      <div class="project-meta">
+
+        <span>Advanced</span>
+
+        <span>Resume application</span>
+
+      </div>
+
+
+      <div class="card-footer">
+
+        <span class="evaluation">
+          ✓ Company review
+        </span>
+
+
+        <a
+          href="private-project.html"
+          class="primary"
+        >
+          Apply
+        </a>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- PUBLIC PROJECT 2 -->
+
+    <article
+      class="card searchable project-item public-item"
+    >
+
+      <div class="badge public">
+        🟢 PUBLIC
+      </div>
+
+
+      <h3>
+        Real-Time Analytics Dashboard
+      </h3>
+
+
+      <p>
+        Create a real-time analytics platform
+        that processes high-volume event streams.
+      </p>
+
+
+      <div class="company">
+        DataFlow Labs
+      </div>
+
+
+      <div class="tags">
+
+        <span>React</span>
+        <span>Kafka</span>
+        <span>Node.js</span>
+
+      </div>
+
+
+      <div class="project-meta">
+
+        <span>Intermediate</span>
+
+        <span>Deadline: Oct 05</span>
+
+      </div>
+
+
+      <div class="card-footer">
+
+        <span class="evaluation">
+          ✓ Expert evaluation
+        </span>
+
+
+        <a
+          href="public-project.html"
+          class="primary"
+        >
+          Apply
+        </a>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- PRIVATE PROJECT 2 -->
+
+    <article
+      class="card searchable project-item private-item"
+    >
+
+      <div class="badge private">
+        🔒 PRIVATE
+      </div>
+
+
+      <h3>
+        Developer Productivity Tool
+      </h3>
+
+
+      <p>
+        Build an internal tool that helps
+        engineering teams automate repetitive
+        development workflows.
+      </p>
+
+
+      <div class="company">
+        Confidential Company
+      </div>
+
+
+      <div class="tags">
+
+        <span>Developer Tools</span>
+        <span>Automation</span>
+        <span>Python</span>
+
+      </div>
+
+
+      <div class="project-meta">
+
+        <span>Advanced</span>
+
+        <span>Resume application</span>
+
+      </div>
+
+
+      <div class="card-footer">
+
+        <span class="evaluation">
+          ✓ Company review
+        </span>
+
+
+        <a
+          href="private-project.html"
+          class="primary"
+        >
+          Apply
+        </a>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- PUBLIC PROJECT 3 -->
+
+    <article
+      class="card searchable project-item public-item"
+    >
+
+      <div class="badge public">
+        🟢 PUBLIC
+      </div>
+
+
+      <h3>
+        Customer Support AI Assistant
+      </h3>
+
+
+      <p>
+        Build an AI assistant that helps
+        support agents answer customer questions faster.
+      </p>
+
+
+      <div class="company">
+        SupportFlow
+      </div>
+
+
+      <div class="tags">
+
+        <span>AI</span>
+        <span>LLM</span>
+        <span>Python</span>
+
+      </div>
+
+
+      <div class="project-meta">
+
+        <span>Intermediate</span>
+
+        <span>Deadline: Oct 12</span>
+
+      </div>
+
+
+      <div class="card-footer">
+
+        <span class="evaluation">
+          ✓ Expert evaluation
+        </span>
+
+
+        <a
+          href="public-project.html"
+          class="primary"
+        >
+          Apply
+        </a>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- PRIVATE PROJECT 3 -->
+
+    <article
+      class="card searchable project-item private-item"
+    >
+
+      <div class="badge private">
+        🔒 PRIVATE
+      </div>
+
+
+      <h3>
+        Enterprise Data Migration
+      </h3>
+
+
+      <p>
+        Help design a migration strategy for
+        moving legacy enterprise data to a modern platform.
+      </p>
+
+
+      <div class="company">
+        Confidential Company
+      </div>
+
+
+      <div class="tags">
+
+        <span>Data</span>
+        <span>Cloud</span>
+        <span>Migration</span>
+
+      </div>
+
+
+      <div class="project-meta">
+
+        <span>Senior</span>
+
+        <span>Resume application</span>
+
+      </div>
+
+
+      <div class="card-footer">
+
+        <span class="evaluation">
+          ✓ Company review
+        </span>
+
+
+        <a
+          href="private-project.html"
+          class="primary"
+        >
+          Apply
+        </a>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+
+<!-- HOW IT WORKS -->
+
+<section class="how">
+
+  <div class="section-label">
+    HOW IT WORKS
+  </div>
+
+
+  <h2>
+    One platform. Three ways to grow.
+  </h2>
+
+
+  <div class="steps">
+
+
+    <div class="step">
+
+      <span>01</span>
+
+      <h3>
+        Explore
+      </h3>
+
+      <p>
+        Discover real-world case studies
+        and project opportunities.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <span>02</span>
+
+      <h3>
+        Solve or Apply
+      </h3>
+
+      <p>
+        Solve a case study, apply for a public
+        project, or apply privately with your resume.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <span>03</span>
+
+      <h3>
+        Get Feedback
+      </h3>
+
+      <p>
+        Public projects and case studies can
+        receive feedback from experienced professionals.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</section>
+
+</main>
+
+
+
+<footer>
+
+  <div class="logo">
+    NESTYIN<span>CONNECT</span>
+  </div>
+
+
+  <p>
+    Real problems. Real skills. Real feedback.
+  </p>
+
+</footer>
+
+
+
+<script src="app.js"></script>
+</body>
+
+</html>

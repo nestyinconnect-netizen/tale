@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solve Case Study — Nestyin Connect</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="index.html">NESTYIN<span>CONNECT</span></a>
+    <nav>
+      <a href="index.html">Explore</a>
+      <a class="active" href="case-study.html">Case Studies</a>
+      <a href="index.html#projects">Projects</a>
+    </nav>
+  </header>
+
+  <main class="application-page">
+    <div class="application-header">
+      <div class="section-label purple">CASE STUDY APPLICATION</div>
+      <h1>Submit your solution</h1>
+      <p>Scaling a Payment Platform</p>
+    </div>
+
+    <form id="applicationForm" class="application-form">
+      <input type="hidden" name="type" value="case_study_application">
+      <input type="hidden" name="project" value="Scaling a Payment Platform">
+
+      <div class="form-grid">
+        <label>
+          Name
+          <input name="name" type="text" autocomplete="name" required>
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" autocomplete="email" required>
+        </label>
+        <label>
+          Phone
+          <input name="phone" type="tel" autocomplete="tel">
+        </label>
+        <label>
+          Experience
+          <input name="experience" type="text" placeholder="e.g. 5 years" required>
+        </label>
+        <label>
+          Current or previous company
+          <input name="company" type="text" autocomplete="organization">
+        </label>
+        <label>
+          Skills
+          <input name="skills" type="text" placeholder="e.g. Backend, AWS, System Design" required>
+        </label>
+      </div>
+
+      <label>
+        Resume link
+        <input name="resume" type="url" placeholder="https://drive.google.com/..." required>
+      </label>
+      <label>
+        Solution link
+        <input name="solution" type="url" placeholder="https://1drv.ms/..." required>
+      </label>
+
+      <p class="form-note">Use share links for your resume and solution. Files are not uploaded to this website.</p>
+      <button class="primary submit-button" type="submit">Submit Solution</button>
+      <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <footer>
+    <div class="logo">NESTYIN<span>CONNECT</span></div>
+    <p>Real problems. Real skills. Real feedback.</p>
+  </footer>
+
+  <script src="application.js"></script>
+</body>
+</html>
