@@ -45,7 +45,7 @@ applicationForm.addEventListener("submit", async event => {
 
   try {
     const response = await fetch(
-      "https://test.nestyinconnect.workers.dev/submit",
+      "https://tale.nestyinconnect.workers.dev/submit",
       {
         method: "POST",
         headers: {
