@@ -18,6 +18,13 @@ export default {
       try {
         const data = await request.json();
 
+        if (!data.caseId && !data.projectId) {
+          return jsonResponse({
+            success: false,
+            message: "A caseId or projectId is required."
+          }, 400, corsHeaders);
+        }
+
         if (!env.RESEND_API_KEY) {
           return jsonResponse({
             success: false,
@@ -32,18 +39,29 @@ export default {
           }, 500, corsHeaders);
         }
 
+        const opportunityType = getOpportunityType(data);
+        const opportunityId = data.caseId || data.projectId;
+        const opportunityLabel = data.caseId ? "Case Study" : "Project";
+        const submittedAt = data.submittedAt || new Date().toISOString();
         const emailHtml = `
-          <h2>Nestyin Connect - Test Submission</h2>
-          <p>A test submission was received successfully.</p>
+          <h2>Nestyin Connect - New Application</h2>
+          <p><strong>Type:</strong> ${escapeHtml(opportunityType)}</p>
+          <p><strong>${opportunityLabel}:</strong> ${escapeHtml(data.project || "")}</p>
+          <p><strong>${opportunityLabel} ID:</strong> ${escapeHtml(opportunityId)}</p>
           <hr>
-          <p><strong>Name:</strong> ${escapeHtml(data.name || "Test User")}</p>
-          <p><strong>Email:</strong> ${escapeHtml(data.email || "test@example.com")}</p>
-          <p><strong>Experience:</strong> ${escapeHtml(data.experience || "5 years")}</p>
-          <p><strong>Company:</strong> ${escapeHtml(data.company || "Microsoft")}</p>
-          <p><strong>Resume:</strong> ${escapeHtml(data.resume || "https://drive.google.com/test")}</p>
-          <p><strong>Solution:</strong> ${escapeHtml(data.solution || "https://1drv.ms/test")}</p>
+          <h3>Applicant</h3>
+          <p><strong>Name:</strong> ${escapeHtml(data.name || "")}</p>
+          <p><strong>Email:</strong> ${escapeHtml(data.email || "")}</p>
+          <p><strong>Phone:</strong> ${escapeHtml(data.phone || "")}</p>
+          <p><strong>Experience:</strong> ${escapeHtml(data.experience || "")}</p>
+          <p><strong>Company:</strong> ${escapeHtml(data.company || "")}</p>
+          <p><strong>Skills:</strong> ${escapeHtml(formatSkills(data.skills))}</p>
           <hr>
-          <p><strong>Submitted:</strong> ${new Date().toISOString()}</p>
+          <h3>Documents</h3>
+          <p><strong>Resume:</strong> ${linkHtml(data.resume)}</p>
+          <p><strong>Solution:</strong> ${linkHtml(data.solution)}</p>
+          <hr>
+          <p><strong>Submitted:</strong> ${escapeHtml(submittedAt)}</p>
         `;
 
         const resendResponse = await fetch(
@@ -55,9 +73,9 @@ export default {
               "Content-Type": "application/json"
             },
             body: JSON.stringify({
-              from: "Nestyin Connect <onboarding@resend.dev>",
+              from: env.RESEND_FROM_EMAIL || "Nestyin Connect <onboarding@resend.dev>",
               to: [env.COORDINATOR_EMAIL],
-              subject: "Nestyin Connect - Test Submission",
+              subject: `Nestyin Connect - ${opportunityType} - ${opportunityId}`,
               html: emailHtml
             })
           }
@@ -121,4 +139,31 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function getOpportunityType(data) {
+  if (data.caseId || data.type === "case_study") {
+    return "Case Study";
+  }
+
+  if (data.type === "private") {
+    return "Private Project";
+  }
+
+  return "Public Project";
+}
+
+function formatSkills(skills) {
+  return Array.isArray(skills) ? skills.join(", ") : skills || "";
+}
+
+function linkHtml(value) {
+  const link = String(value || "");
+
+  if (!/^https?:\/\//i.test(link)) {
+    return escapeHtml(link);
+  }
+
+  const escapedLink = escapeHtml(link);
+  return `<a href="${escapedLink}">${escapedLink}</a>`;
 }

@@ -187,7 +187,11 @@ async function testWorker() {
 
   const testData = {
 
-    type: "test_submission",
+    type: "public",
+
+    projectId: "project-payment-api",
+
+    project: "Build a Scalable Payment API",
 
     name: "Test User",
 
