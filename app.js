@@ -112,12 +112,17 @@ async function loadOpportunities() {
     ? content.projects
     : content.projects.filter(item => item.showOnMain);
 
-  caseStudyCards.replaceChildren(
-    ...caseStudies.map(item => createOpportunityCard(item, "caseStudy"))
-  );
-  projectCards.replaceChildren(
-    ...projects.map(item => createOpportunityCard(item, "project"))
-  );
+  if (caseStudyCards) {
+    caseStudyCards.replaceChildren(
+      ...caseStudies.map(item => createOpportunityCard(item, "caseStudy"))
+    );
+  }
+
+  if (projectCards) {
+    projectCards.replaceChildren(
+      ...projects.map(item => createOpportunityCard(item, "project"))
+    );
+  }
   cards = document.querySelectorAll(".searchable");
   selectFilterFromHash();
 }
