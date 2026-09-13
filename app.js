@@ -136,6 +136,19 @@ function filterCards() {
       ? activeFilterElement.dataset.filter
       : "all";
 
+  const caseStudySection = document.getElementById("case-studies");
+  const projectSection = document.getElementById("projects");
+  const showCaseStudies = ["all", "case"].includes(activeFilter);
+  const showProjects = ["all", "project", "public", "private"].includes(activeFilter);
+
+  if (caseStudySection) {
+    caseStudySection.style.display = showCaseStudies ? "" : "none";
+  }
+
+  if (projectSection) {
+    projectSection.style.display = showProjects ? "" : "none";
+  }
+
 
   cards.forEach(card => {
 
