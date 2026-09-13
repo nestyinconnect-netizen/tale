@@ -94,7 +94,9 @@ function createOpportunityCard(item, kind) {
 }
 
 async function loadOpportunities() {
-  const response = await fetch("content-template.json");
+  const response = await fetch(`content-template.json?v=${Date.now()}`, {
+    cache: "no-store"
+  });
   if (!response.ok) {
     throw new Error(`Could not load opportunities: ${response.status}`);
   }
