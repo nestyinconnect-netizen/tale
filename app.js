@@ -14,8 +14,12 @@ const searchInput =
 const filters =
   document.querySelectorAll(".filter");
 
+const tagFilters =
+  document.getElementById("tagFilters");
+
 let cards =
   document.querySelectorAll(".searchable");
+let activeTag = "all";
 
 function createOpportunityCard(item, kind) {
   const card = document.createElement("article");
@@ -34,6 +38,7 @@ function createOpportunityCard(item, kind) {
   card.className = `card searchable ${isCaseStudy ? "case-item" : "project-item"}${
     isCaseStudy ? "" : ` ${isPrivate ? "private-item" : "public-item"}`
   }`;
+  card.dataset.tags = item.tags.join("|").toLowerCase();
 
   const badge = document.createElement("div");
   badge.className = `badge ${badgeClass}`;
@@ -112,6 +117,18 @@ async function loadOpportunities() {
     ? content.projects
     : content.projects.filter(item => item.showOnMain);
 
+  if (tagFilters) {
+    const tags = [...new Set(
+      [...caseStudies, ...projects].flatMap(item => item.tags)
+    )].sort();
+
+    tagFilters.replaceChildren();
+    const allTagsButton = createTagFilter("All tags", "all");
+    allTagsButton.classList.add("active");
+    tagFilters.append(allTagsButton);
+    tags.forEach(tag => tagFilters.append(createTagFilter(tag, tag)));
+  }
+
   if (caseStudyCards) {
     caseStudyCards.replaceChildren(
       ...caseStudies.map(item => createOpportunityCard(item, "caseStudy"))
@@ -125,6 +142,22 @@ async function loadOpportunities() {
   }
   cards = document.querySelectorAll(".searchable");
   selectFilterFromHash();
+}
+
+function createTagFilter(label, value) {
+  const button = document.createElement("button");
+  button.className = "tag-filter";
+  button.type = "button";
+  button.textContent = label;
+  button.dataset.tag = value;
+  button.addEventListener("click", () => {
+    activeTag = value.toLowerCase();
+    tagFilters.querySelectorAll(".tag-filter").forEach(item => {
+      item.classList.toggle("active", item.dataset.tag.toLowerCase() === activeTag);
+    });
+    filterCards();
+  });
+  return button;
 }
 
 
@@ -170,6 +203,9 @@ function filterCards() {
     const searchMatch =
       text.includes(searchText);
 
+    const tagMatch =
+      activeTag === "all" || card.dataset.tags.split("|").includes(activeTag);
+
 
     /*
      * Category filter
@@ -214,7 +250,7 @@ function filterCards() {
      * Show / hide card
      */
 
-    if (searchMatch && filterMatch) {
+    if (searchMatch && filterMatch && tagMatch) {
 
       card.style.display = "";
 

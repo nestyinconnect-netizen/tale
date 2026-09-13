@@ -336,6 +336,29 @@ nav a.active {
 
 }
 
+.tag-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: -45px 0 65px;
+}
+
+.tag-filter {
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--muted);
+  padding: 7px 12px;
+  border-radius: 18px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.tag-filter.active {
+  background: var(--purple-light);
+  border-color: var(--purple);
+  color: var(--purple);
+}
+
 
 
 /* SECTIONS */
