@@ -102,12 +102,19 @@ async function loadOpportunities() {
   const content = await response.json();
   const caseStudyCards = document.getElementById("caseStudyCards");
   const projectCards = document.getElementById("projectCards");
+  const showAll = document.body.dataset.view === "all";
+  const caseStudies = showAll
+    ? content.caseStudies
+    : content.caseStudies.filter(item => item.showOnMain);
+  const projects = showAll
+    ? content.projects
+    : content.projects.filter(item => item.showOnMain);
 
   caseStudyCards.replaceChildren(
-    ...content.caseStudies.map(item => createOpportunityCard(item, "caseStudy"))
+    ...caseStudies.map(item => createOpportunityCard(item, "caseStudy"))
   );
   projectCards.replaceChildren(
-    ...content.projects.map(item => createOpportunityCard(item, "project"))
+    ...projects.map(item => createOpportunityCard(item, "project"))
   );
   cards = document.querySelectorAll(".searchable");
 }

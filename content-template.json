@@ -2,7 +2,8 @@
   "caseStudies": [
     {
       "id": "case-payment-scaling",
-      "title": "Scaling a payment Platform",
+      "showOnMain": true,
+      "title": "Scaling a cloud Platform",
       "description": "A rapidly growing payment company is experiencing increasing latency during peak transaction periods.",
       "company": "Acme Technologies",
       "tags": ["Payments", "Backend", "AWS", "System Design"],
@@ -14,6 +15,7 @@
     },
     {
       "id": "case-recommendation-scale",
+      "showOnMain": true,
       "title": "Recommendation System at Scale",
       "description": "Design a recommendation engine capable of serving millions of users while keeping response times low.",
       "company": "Nova Commerce",
@@ -26,6 +28,7 @@
     },
     {
       "id": "case-cloud-cost-reduction",
+      "showOnMain": true,
       "title": "Reducing Cloud Infrastructure Costs",
       "description": "A SaaS company wants to reduce its cloud bill by 30% without compromising application performance.",
       "company": "CloudScale Inc.",
@@ -38,6 +41,7 @@
     },
     {
       "id": "case-multitenant-saas",
+      "showOnMain": true,
       "title": "Multi-Tenant SaaS Architecture",
       "description": "Design a secure and scalable architecture supporting thousands of business customers.",
       "company": "Orbit Software",
@@ -52,6 +56,7 @@
   "projects": [
     {
       "id": "project-payment-api",
+      "showOnMain": true,
       "title": "Build a Scalable Payment API",
       "type": "public",
       "description": "Build a production-ready payment API with authentication, transaction processing and monitoring.",
@@ -63,6 +68,7 @@
     },
     {
       "id": "project-enterprise-ai",
+      "showOnMain": true,
       "title": "Enterprise AI Challenge",
       "type": "private",
       "description": "Help build an NLP-powered internal knowledge assistant for enterprise teams.",
@@ -74,6 +80,7 @@
     },
     {
       "id": "project-realtime-analytics",
+      "showOnMain": true,
       "title": "Real-Time Analytics Dashboard",
       "type": "public",
       "description": "Create a real-time analytics platform that processes high-volume event streams.",
@@ -85,6 +92,7 @@
     },
     {
       "id": "project-developer-productivity",
+      "showOnMain": false,
       "title": "Developer Productivity Tool",
       "type": "private",
       "description": "Build an internal tool that helps engineering teams automate repetitive development workflows.",
@@ -96,6 +104,7 @@
     },
     {
       "id": "project-support-ai",
+      "showOnMain": false,
       "title": "Customer Support AI Assistant",
       "type": "public",
       "description": "Build an AI assistant that helps support agents answer customer questions faster.",
@@ -107,6 +116,7 @@
     },
     {
       "id": "project-enterprise-migration",
+      "showOnMain": false,
       "title": "Enterprise Data Migration",
       "type": "private",
       "description": "Help design a migration strategy for moving legacy enterprise data to a modern platform.",
