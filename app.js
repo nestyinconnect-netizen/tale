@@ -117,6 +117,7 @@ async function loadOpportunities() {
     ...projects.map(item => createOpportunityCard(item, "project"))
   );
   cards = document.querySelectorAll(".searchable");
+  selectFilterFromHash();
 }
 
 
@@ -259,9 +260,31 @@ filters.forEach(filter => {
 
 });
 
+function selectFilterFromHash() {
+  const hashFilters = {
+    "#case-studies": "case",
+    "#projects": "project"
+  };
+  const filterName = hashFilters[window.location.hash];
+
+  if (!filterName) {
+    return;
+  }
+
+  const filter = document.querySelector(`[data-filter="${filterName}"]`);
+  if (filter) {
+    filters.forEach(item => item.classList.remove("active"));
+    filter.classList.add("active");
+    filterCards();
+  }
+}
+
 loadOpportunities().catch(error => {
   console.error("Could not load opportunity content:", error);
 });
+
+window.addEventListener("hashchange", selectFilterFromHash);
+selectFilterFromHash();
 
 
 
