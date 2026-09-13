@@ -1,0 +1,29 @@
+{
+  "caseStudies": [
+    {
+      "id": "case-payment-scaling",
+      "title": "Scaling a Payment Platform",
+      "description": "A rapidly growing payment company is experiencing increasing latency during peak transaction periods.",
+      "company": "Acme Technologies",
+      "tags": ["Payments", "Backend", "AWS", "System Design"],
+      "rating": 4.7,
+      "attempts": 342,
+      "feedback": "Expert feedback",
+      "detailPage": "case-study.html",
+      "applicationPage": "solve-case-study.html"
+    }
+  ],
+  "projects": [
+    {
+      "id": "project-payment-api",
+      "title": "Build a Scalable Payment API",
+      "type": "public",
+      "description": "Build a production-ready payment API with authentication, transaction processing and monitoring.",
+      "company": "Sponsored by Acme Technologies",
+      "tags": ["Backend", "AWS", "API", "System Design"],
+      "level": "Intermediate",
+      "deadline": "Sep 28",
+      "evaluation": "Expert evaluation"
+    }
+  ]
+}
