@@ -11,6 +11,42 @@
       "feedback": "Expert feedback",
       "detailPage": "case-study.html",
       "applicationPage": "solve-case-study.html"
+    },
+    {
+      "id": "case-recommendation-scale",
+      "title": "Recommendation System at Scale",
+      "description": "Design a recommendation engine capable of serving millions of users while keeping response times low.",
+      "company": "Nova Commerce",
+      "tags": ["AI", "ML", "Python", "Data"],
+      "rating": 4.8,
+      "attempts": 218,
+      "feedback": "Expert feedback",
+      "detailPage": "case-study.html",
+      "applicationPage": "solve-case-study.html"
+    },
+    {
+      "id": "case-cloud-cost-reduction",
+      "title": "Reducing Cloud Infrastructure Costs",
+      "description": "A SaaS company wants to reduce its cloud bill by 30% without compromising application performance.",
+      "company": "CloudScale Inc.",
+      "tags": ["AWS", "DevOps", "FinOps"],
+      "rating": 4.6,
+      "attempts": 156,
+      "feedback": "Expert feedback",
+      "detailPage": "case-study.html",
+      "applicationPage": "solve-case-study.html"
+    },
+    {
+      "id": "case-multitenant-saas",
+      "title": "Multi-Tenant SaaS Architecture",
+      "description": "Design a secure and scalable architecture supporting thousands of business customers.",
+      "company": "Orbit Software",
+      "tags": ["Architecture", "Backend", "SaaS"],
+      "rating": 4.9,
+      "attempts": 403,
+      "feedback": "Expert feedback",
+      "detailPage": "case-study.html",
+      "applicationPage": "solve-case-study.html"
     }
   ],
   "projects": [
@@ -24,6 +60,61 @@
       "level": "Intermediate",
       "deadline": "Sep 28",
       "evaluation": "Expert evaluation"
+    },
+    {
+      "id": "project-enterprise-ai",
+      "title": "Enterprise AI Challenge",
+      "type": "private",
+      "description": "Help build an NLP-powered internal knowledge assistant for enterprise teams.",
+      "company": "Sponsored by Acme Technologies",
+      "tags": ["AI", "NLP", "Python", "Machine Learning"],
+      "level": "Advanced",
+      "application": "Resume application",
+      "evaluation": "Company review"
+    },
+    {
+      "id": "project-realtime-analytics",
+      "title": "Real-Time Analytics Dashboard",
+      "type": "public",
+      "description": "Create a real-time analytics platform that processes high-volume event streams.",
+      "company": "DataFlow Labs",
+      "tags": ["React", "Kafka", "Node.js"],
+      "level": "Intermediate",
+      "deadline": "Oct 05",
+      "evaluation": "Expert evaluation"
+    },
+    {
+      "id": "project-developer-productivity",
+      "title": "Developer Productivity Tool",
+      "type": "private",
+      "description": "Build an internal tool that helps engineering teams automate repetitive development workflows.",
+      "company": "Confidential Company",
+      "tags": ["Developer Tools", "Automation", "Python"],
+      "level": "Advanced",
+      "application": "Resume application",
+      "evaluation": "Company review"
+    },
+    {
+      "id": "project-support-ai",
+      "title": "Customer Support AI Assistant",
+      "type": "public",
+      "description": "Build an AI assistant that helps support agents answer customer questions faster.",
+      "company": "SupportFlow",
+      "tags": ["AI", "LLM", "Python"],
+      "level": "Intermediate",
+      "deadline": "Oct 12",
+      "evaluation": "Expert evaluation"
+    },
+    {
+      "id": "project-enterprise-migration",
+      "title": "Enterprise Data Migration",
+      "type": "private",
+      "description": "Help design a migration strategy for moving legacy enterprise data to a modern platform.",
+      "company": "Confidential Company",
+      "tags": ["Data", "Cloud", "Migration"],
+      "level": "Senior",
+      "application": "Resume application",
+      "evaluation": "Company review"
     }
   ]
 }
