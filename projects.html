@@ -4,15 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects — Nestyin Connect</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=8">
 </head>
-<body data-view="all">
+<body class="projects-page" data-view="all">
   <header class="navbar">
     <a class="logo" href="index.html">NESTYIN<span>CONNECT</span></a>
     <nav>
       <a href="index.html">Explore</a>
       <a href="case-studies.html">Case Studies</a>
       <a class="active" href="projects.html">Projects</a>
+      <a href="contribute-case-study.html">Contribute</a>
+      <a href="contact.html?type=feedback">Feedback</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
@@ -20,10 +23,12 @@
     <section class="hero">
       <div class="hero-content">
         <div class="eyebrow">PROJECTS</div>
-        <h1>Find a project.</h1>
+        <h1>Discover Your Next Professional Challenge</h1>
+        <p class="listing-hero-copy">Find practical opportunities by title, skill, company, or role.</p>
         <div class="search-box">
           <span>⌕</span>
           <input id="searchInput" type="text" placeholder="Search projects, skills...">
+          <button id="searchProjectsButton" type="button">Search projects</button>
         </div>
       </div>
     </section>
@@ -32,10 +37,19 @@
       <div class="section-header">
         <div>
           <div class="section-label green">PROJECTS</div>
-          <h1>All projects</h1>
+          <h1>All Projects</h1>
         </div>
       </div>
-      <div class="cards" id="projectCards"></div>
+      <div class="project-browser">
+        <aside class="project-filter-sidebar">
+          <div class="filter-sidebar-heading">Filter projects</div>
+          <div class="project-filter-bar" id="projectFilterBar"></div>
+        </aside>
+        <div class="project-results">
+          <div class="project-results-summary">Browse projects by access, skill, company, or role.</div>
+          <div class="cards" id="projectCards"></div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -44,6 +58,6 @@
     <p>Real problems. Real skills. Real feedback.</p>
   </footer>
 
-  <script src="app.js?v=4"></script>
+  <script src="app.js?v=9"></script>
 </body>
 </html>

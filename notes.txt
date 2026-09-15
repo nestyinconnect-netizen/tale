@@ -1,0 +1,3 @@
+Junior / SE2 → fundamentals + learning curve
+Mid / Senior → tradeoff quality + architecture
+Staff / Principal → strategic impact + system-level influence

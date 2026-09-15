@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contribute a Case Study - Nestyin Connect</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="index.html">NESTYIN<span>CONNECT</span></a>
+    <nav>
+      <a href="index.html">Explore</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="projects.html">Projects</a>
+      <a class="active" href="contribute-case-study.html">Contribute</a>
+      <a href="contact.html?type=feedback">Feedback</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="application-page">
+    <div class="application-header">
+      <div class="section-label purple">PLATFORM CONTRIBUTION</div>
+      <h1>Contribute a Case Study</h1>
+      <p>Share a real engineering problem for the community to solve and evaluate.</p>
+    </div>
+
+    <form id="contributionForm" class="application-form">
+      <div class="form-grid">
+        <label>
+          Your name
+          <input name="name" type="text" autocomplete="name" required>
+        </label>
+        <label>
+          Your email
+          <input name="email" type="email" autocomplete="email" required>
+        </label>
+        <label>
+          Case study title
+          <input name="title" type="text" placeholder="e.g. Designing a multi-region platform" required>
+        </label>
+        <label>
+          Relevant domain / stack
+          <input name="evaluationFocus" type="text" placeholder="e.g. Backend, Cloud, Security" required>
+        </label>
+        <label>
+          Target level
+          <select name="targetLevel" required>
+            <option value="">Select level</option>
+            <option value="Junior / SE2">Junior / SE2</option>
+            <option value="Mid / SE3">Mid / SE3</option>
+            <option value="Senior">Senior</option>
+            <option value="Staff">Staff</option>
+            <option value="Principal">Principal</option>
+            <option value="Multi-level">Multi-level</option>
+          </select>
+        </label>
+        <label>
+          Difficulty
+          <select name="difficulty" required>
+            <option value="">Select difficulty</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </label>
+      </div>
+
+      <label>
+        Problem description
+        <textarea name="description" rows="5" placeholder="Describe the real situation and why it matters." required></textarea>
+      </label>
+      <label>
+        What should candidates evaluate?
+        <textarea name="requirements" rows="4" placeholder="One evaluation point per line." required></textarea>
+      </label>
+      <label>
+        Expected deliverables
+        <textarea name="deliverables" rows="4" placeholder="One deliverable per line." required></textarea>
+      </label>
+      <label>
+        Constraints
+        <textarea name="constraints" rows="4" placeholder="One constraint per line." required></textarea>
+      </label>
+      <label>
+        Success metrics
+        <textarea name="successMetrics" rows="4" placeholder="One success metric per line." required></textarea>
+      </label>
+
+      <p class="form-note">Do not include confidential customer, employer, or security-sensitive information. Contributions are reviewed before publication.</p>
+      <button class="primary submit-button" type="submit">Submit Case Study Contribution</button>
+      <p id="contributionStatus" class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <footer>
+    <div class="logo">NESTYIN<span>CONNECT</span></div>
+    <p>Real problems. Real skills. Real feedback.</p>
+  </footer>
+
+  <script src="contribution.js"></script>
+</body>
+</html>

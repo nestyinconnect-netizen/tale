@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project — Nestyin Connect</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="index.html">NESTYIN<span>CONNECT</span></a>
+    <nav>
+      <a href="index.html">Explore</a>
+      <a href="case-study.html">Case Studies</a>
+      <a class="active" href="projects.html">Projects</a>
+        <a href="contribute-case-study.html">Contribute</a>
+    </nav>
+  </header>
+
+  <main class="detail-page">
+    <div class="detail-layout">
+      <article class="detail-copy">
+        <div class="section-label green">PROJECT</div>
+        <h1 id="detailTitle">Loading project...</h1>
+        <p id="detailLead" class="detail-lead"></p>
+        <div id="detailCompany" class="company"></div>
+
+        <div id="metaSummary" class="company"></div>
+
+        <h2>The challenge</h2>
+        <p id="detailChallenge"></p>
+
+        <h2>What to evaluate</h2>
+        <ul id="detailRequirements"></ul>
+
+        <h2>Deliverables</h2>
+        <ul id="detailDeliverables"></ul>
+
+        <h2>Constraints</h2>
+        <ul id="detailConstraints"></ul>
+
+        <h2>Success metrics</h2>
+        <ul id="detailSuccessMetrics"></ul>
+
+        <div id="detailTags" class="tags"></div>
+      </article>
+
+      <aside class="detail-panel">
+        <span id="detailBadge" class="badge public">PROJECT</span>
+        <h2>Ready to apply?</h2>
+        <p>Submit your idea and share your approach with the opportunity team.</p>
+        <a id="detailApplyLink" class="primary button-link" href="apply.html?evaluationType=General+expert+review">Apply for Professional Evaluation</a>
+        <a class="secondary button-link" href="contact.html">Contact Us</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="logo">NESTYIN<span>CONNECT</span></div>
+    <p>Real problems. Real skills. Real feedback.</p>
+  </footer>
+
+  <script>
+    async function loadProjectDetail() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id") || "project-payment-api";
+
+      try {
+        const response = await fetch(`content-template.json?v=${Date.now()}`, { cache: "no-store" });
+        const data = await response.json();
+        const item = data.projects.find(entry => entry.id === id) || data.projects[0];
+        const detail = item.detail || {};
+
+        document.title = `${item.title} — Nestyin Connect`;
+        document.getElementById("detailTitle").textContent = item.title;
+        document.getElementById("detailLead").textContent = detail.lead || item.description;
+        document.getElementById("detailCompany").textContent = item.company;
+        document.getElementById("detailChallenge").textContent = detail.challenge || item.description;
+
+        const requirements = document.getElementById("detailRequirements");
+        requirements.innerHTML = "";
+        (detail.requirements || [detail.focus || item.description]).forEach(line => {
+          const li = document.createElement("li");
+          li.textContent = line;
+          requirements.appendChild(li);
+        });
+
+        const deliverables = document.getElementById("detailDeliverables");
+        deliverables.innerHTML = "";
+        (item.deliverables || []).forEach(line => {
+          const li = document.createElement("li");
+          li.textContent = line;
+          deliverables.appendChild(li);
+        });
+
+        const constraints = document.getElementById("detailConstraints");
+        constraints.innerHTML = "";
+        (item.constraints || []).forEach(line => {
+          const li = document.createElement("li");
+          li.textContent = line;
+          constraints.appendChild(li);
+        });
+
+        const metrics = document.getElementById("detailSuccessMetrics");
+        metrics.innerHTML = "";
+        (item.successMetrics || []).forEach(line => {
+          const li = document.createElement("li");
+          li.textContent = line;
+          metrics.appendChild(li);
+        });
+
+        const metaSummary = document.getElementById("metaSummary");
+        metaSummary.replaceChildren();
+        [
+          ["Target level", item.targetLevel],
+          ["Evaluation focus", item.evaluationFocus],
+          ["Difficulty", item.difficulty]
+        ].forEach(([label, value]) => {
+          if (!value) {
+            return;
+          }
+          const chip = document.createElement("span");
+          chip.className = "detail-meta-chip";
+          const chipLabel = document.createElement("strong");
+          chipLabel.textContent = label;
+          const chipValue = document.createElement("span");
+          chipValue.textContent = value;
+          chip.append(chipLabel, chipValue);
+          metaSummary.appendChild(chip);
+        });
+
+        const tags = document.getElementById("detailTags");
+        tags.innerHTML = "";
+        (item.tags || []).forEach(tag => {
+          const span = document.createElement("span");
+          span.textContent = tag;
+          tags.appendChild(span);
+        });
+
+        const badge = document.getElementById("detailBadge");
+        badge.className = `badge ${item.type === "private" ? "private" : "public"}`;
+        badge.textContent = item.type === "private" ? "PRIVATE PROJECT" : "PUBLIC PROJECT";
+
+        const applyLink = document.getElementById("detailApplyLink");
+        applyLink.href = `apply.html?projectId=${encodeURIComponent(item.id)}&type=${encodeURIComponent(item.type)}&evaluationType=General+expert+review`;
+      } catch (error) {
+        console.error("Failed to load project detail:", error);
+        document.getElementById("detailTitle").textContent = "Project unavailable";
+        document.getElementById("detailLead").textContent = "The selected project could not be loaded.";
+      }
+    }
+
+    loadProjectDetail();
+  </script>
+</body>
+</html>

@@ -39,20 +39,38 @@
           <input name="email" type="email" autocomplete="email" required>
         </label>
         <label>
-          Phone
-          <input name="phone" type="tel" autocomplete="tel">
-        </label>
-        <label>
-          Experience
+          Total years of experience
           <input name="experience" type="text" placeholder="e.g. 5 years" required>
         </label>
         <label>
-          Current or previous company
-          <input name="company" type="text" autocomplete="organization">
+          Target role / level
+          <select name="targetLevel" required>
+            <option value="">Select level</option>
+            <option value="Junior / SE2">Junior / SE2</option>
+            <option value="Mid / SE3">Mid / SE3</option>
+            <option value="Senior">Senior</option>
+            <option value="Staff">Staff</option>
+            <option value="Principal">Principal</option>
+            <option value="Other">Other</option>
+          </select>
         </label>
         <label>
-          Skills
-          <input name="skills" type="text" placeholder="e.g. Backend, AWS, System Design" required>
+          Target position title
+          <input name="targetPosition" type="text" placeholder="e.g. Senior Software Engineer" required>
+        </label>
+        <label>
+          Evaluation type
+          <select name="evaluationType" required>
+            <option value="General expert review">General expert review</option>
+            <option value="Microsoft">Microsoft</option>
+            <option value="Google">Google</option>
+            <option value="Amazon">Amazon</option>
+            <option value="Other professional">Other professional</option>
+          </select>
+        </label>
+        <label>
+          Evaluation focus area
+          <input name="domain" type="text" placeholder="e.g. Backend, Cloud, Data, Platform, Security" required>
         </label>
       </div>
 

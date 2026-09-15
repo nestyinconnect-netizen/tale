@@ -5,6 +5,7 @@ const params = new URLSearchParams(window.location.search);
 const caseIdField = applicationForm.elements.caseId;
 const projectIdField = applicationForm.elements.projectId;
 const opportunityTypeField = applicationForm.elements.type;
+const evaluationTypeField = applicationForm.elements.evaluationType;
 const opportunityName = document.getElementById("opportunityName");
 
 const projects = {
@@ -25,6 +26,10 @@ if (projectIdField) {
 
 if (opportunityTypeField && params.get("type")) {
   opportunityTypeField.value = params.get("type");
+}
+
+if (evaluationTypeField && params.get("evaluationType")) {
+  evaluationTypeField.value = params.get("evaluationType") || "General expert review";
 }
 
 if (opportunityName && projectIdField) {

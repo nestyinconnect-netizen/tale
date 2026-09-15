@@ -11,11 +11,22 @@
 const searchInput =
   document.getElementById("searchInput");
 
+const searchProjectsButton =
+  document.getElementById("searchProjectsButton");
+
 const filters =
   document.querySelectorAll(".filter");
 
 const tagFilters =
   document.getElementById("tagFilters");
+
+const projectFilterBar = document.getElementById("projectFilterBar");
+const projectFilterState = {
+  type: new Set(["all"]),
+  tag: new Set(["all"]),
+  company: new Set(["all"]),
+  role: new Set(["all"])
+};
 
 let cards =
   document.querySelectorAll(".searchable");
@@ -31,6 +42,8 @@ function createOpportunityCard(item, kind) {
     : isPrivate
       ? "🔒 PRIVATE"
       : "🟢 PUBLIC";
+  const detailPage = item.detailPage || (isCaseStudy ? "case-study.html" : "project.html");
+  const detailUrl = `${detailPage}?id=${encodeURIComponent(item.id)}`;
   const applicationUrl = isCaseStudy
     ? `${item.applicationPage}?caseId=${encodeURIComponent(item.id)}`
     : `apply.html?projectId=${encodeURIComponent(item.id)}&type=${encodeURIComponent(item.type)}`;
@@ -39,6 +52,16 @@ function createOpportunityCard(item, kind) {
     isCaseStudy ? "" : ` ${isPrivate ? "private-item" : "public-item"}`
   }`;
   card.dataset.tags = item.tags.join("|").toLowerCase();
+  card.dataset.projectType = item.type || "public";
+  card.dataset.projectCompany = (item.company || "").toLowerCase();
+  card.dataset.projectRoles = (item.roleCategories || [item.targetLevel]).filter(Boolean).map(role => String(role).toLowerCase()).join("|");
+  card.style.cursor = "pointer";
+  card.addEventListener("click", event => {
+    if (event.target.closest("a")) {
+      return;
+    }
+    window.location.href = detailUrl;
+  });
 
   const badge = document.createElement("div");
   badge.className = `badge ${badgeClass}`;
@@ -72,7 +95,6 @@ function createOpportunityCard(item, kind) {
   if (isCaseStudy) {
     meta.append(`${item.rating ? `★ ${item.rating}` : ""}`);
     meta.append(`${item.attempts ? `${item.attempts} attempts` : ""}`);
-    meta.append(item.feedback || "");
   } else {
     meta.append(item.level || "");
     meta.append(item.deadline ? `Deadline: ${item.deadline}` : item.application || "");
@@ -81,18 +103,24 @@ function createOpportunityCard(item, kind) {
 
   const footer = document.createElement("div");
   footer.className = "card-footer";
-  if (!isCaseStudy) {
-    const evaluation = document.createElement("span");
-    evaluation.className = "evaluation";
-    evaluation.textContent = `✓ ${item.evaluation || "Evaluation"}`;
-    footer.append(evaluation);
-  }
 
-  const link = document.createElement("a");
-  link.className = "primary";
-  link.href = applicationUrl;
-  link.textContent = isCaseStudy ? "Solve Case Study" : "Apply";
-  footer.append(link);
+  const expertButton = document.createElement("a");
+  expertButton.className = "primary";
+  expertButton.href = applicationUrl + (applicationUrl.includes("?") ? "&" : "?") + "evaluationType=General+expert+review";
+  expertButton.textContent = isCaseStudy ? "Solve for Professional Evaluation" : "Apply for Professional Evaluation";
+  footer.append(expertButton);
+
+  const detailLink = document.createElement("a");
+  detailLink.className = "secondary";
+  detailLink.href = detailUrl;
+  detailLink.textContent = "View details";
+  footer.append(detailLink);
+
+  const actionLink = document.createElement("a");
+  actionLink.className = "primary";
+  actionLink.href = applicationUrl;
+  actionLink.textContent = isCaseStudy ? "Solve Case Study" : "Apply";
+  footer.append(actionLink);
   card.append(footer);
 
   return card;
@@ -116,6 +144,8 @@ async function loadOpportunities() {
   const projects = showAll
     ? content.projects
     : content.projects.filter(item => item.showOnMain);
+
+  renderProjectFilters(document.body.classList.contains("case-studies-page") ? caseStudies : projects);
 
   if (tagFilters) {
     const tags = [...new Set(
@@ -245,12 +275,25 @@ function filterCards() {
 
     }
 
+    const projectTypeMatch =
+      projectFilterState.type.has("all") ||
+      projectFilterState.type.has(card.dataset.projectType);
+    const projectTagMatch =
+      projectFilterState.tag.has("all") ||
+      card.dataset.tags.split("|").some(tag => projectFilterState.tag.has(tag));
+    const projectCompanyMatch =
+      projectFilterState.company.has("all") ||
+      projectFilterState.company.has(card.dataset.projectCompany);
+    const projectRoleMatch =
+      projectFilterState.role.has("all") ||
+      card.dataset.projectRoles.split("|").some(role => projectFilterState.role.has(role));
+
 
     /*
      * Show / hide card
      */
 
-    if (searchMatch && filterMatch && tagMatch) {
+    if (searchMatch && filterMatch && tagMatch && projectTypeMatch && projectTagMatch && projectCompanyMatch && projectRoleMatch) {
 
       card.style.display = "";
 
@@ -264,6 +307,86 @@ function filterCards() {
 
 }
 
+function createProjectFilter(key, label, options) {
+  const picker = document.createElement("div");
+  picker.className = "category-picker";
+
+  const button = document.createElement("button");
+  button.className = "category-picker-button";
+  button.type = "button";
+  button.textContent = `All ${label}`;
+  button.setAttribute("aria-expanded", "false");
+
+  const menu = document.createElement("div");
+  menu.className = "category-picker-menu";
+  menu.hidden = true;
+
+  const checkboxes = options.map(([value, optionLabel]) => {
+    const option = document.createElement("label");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.value = value;
+    checkbox.checked = value === "all";
+    const text = document.createElement("span");
+    text.textContent = optionLabel;
+    option.append(checkbox, text);
+    menu.append(option);
+    return checkbox;
+  });
+
+  button.addEventListener("click", () => {
+    const isOpen = button.getAttribute("aria-expanded") === "true";
+    button.setAttribute("aria-expanded", String(!isOpen));
+    menu.hidden = isOpen;
+  });
+
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener("change", () => {
+      const selected = projectFilterState[key];
+      if (checkbox.value === "all" && checkbox.checked) {
+        selected.clear();
+        selected.add("all");
+        checkboxes.forEach(item => { item.checked = item.value === "all"; });
+      } else {
+        selected.delete("all");
+        if (checkbox.checked) selected.add(checkbox.value);
+        else selected.delete(checkbox.value);
+        if (selected.size === 0) {
+          selected.add("all");
+          checkboxes[0].checked = true;
+        }
+      }
+      const labels = checkboxes
+        .filter(item => item.checked && item.value !== "all")
+        .map(item => item.nextElementSibling.textContent);
+      button.textContent = selected.has("all")
+        ? `All ${label}`
+        : labels.length > 1 ? `${labels.length} selected` : labels[0];
+      filterCards();
+    });
+  });
+
+  picker.append(button, menu);
+  return picker;
+}
+
+function renderProjectFilters(projects) {
+  if (!projectFilterBar) return;
+  const tags = [...new Set(projects.flatMap(item => item.tags.map(tag => tag.toLowerCase())))].sort();
+  const companies = [...new Set(projects.map(item => (item.company || "").toLowerCase()))].sort();
+  const roles = [...new Set(projects.flatMap(item => item.roleCategories || []))].sort();
+  const companyOptions = companies.map(company => [
+    company,
+    company.includes("confidential") ? "Anonymous / Confidential" : company
+  ]);
+  projectFilterBar.replaceChildren(
+    createProjectFilter("type", "types", [["all", "All project types"], ["public", "Public"], ["private", "Private"]]),
+    createProjectFilter("tag", "tags", [["all", "All tags"], ...tags.map(tag => [tag, tag.replace(/\b\w/g, letter => letter.toUpperCase())])]),
+    createProjectFilter("company", "companies", [["all", "All companies"], ...companyOptions]),
+    createProjectFilter("role", "roles", [["all", "All role categories"], ...roles.map(role => [role.toLowerCase(), role])])
+  );
+}
+
 
 
 /* Search */
@@ -275,6 +398,10 @@ if (searchInput) {
     filterCards
   );
 
+}
+
+if (searchProjectsButton) {
+  searchProjectsButton.addEventListener("click", filterCards);
 }
 
 

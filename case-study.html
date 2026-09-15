@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scaling a cloud Platform — Nestyin Connect</title>
+  <title>Case Study — Nestyin Connect</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,26 +20,37 @@
     <div class="detail-layout">
       <article class="detail-copy">
         <div class="section-label purple">CASE STUDY</div>
-        <h1>Scaling a cloud Platform</h1>
-        <p class="detail-lead">A rapidly growing payment company is experiencing increasing latency during peak transaction periods.</p>
-        <div class="company">Acme Technologies</div>
+        <h1 id="detailTitle">Loading case study...</h1>
+        <p id="detailLead" class="detail-lead"></p>
+        <div id="detailCompany" class="company"></div>
+
+        <div id="metaSummary" class="company"></div>
 
         <h2>The challenge</h2>
-        <p>Design a resilient architecture that keeps transaction latency low as traffic grows, while preserving reliability, observability, and safe recovery during incidents.</p>
+        <p id="detailChallenge"></p>
 
-        <div class="tags">
-          <span>Payments</span>
-          <span>Backend</span>
-          <span>AWS</span>
-          <span>System Design</span>
-        </div>
+        <h2>What to evaluate</h2>
+        <ul id="detailRequirements"></ul>
+
+        <h2>Deliverables</h2>
+        <ul id="detailDeliverables"></ul>
+
+        <h2>Constraints</h2>
+        <ul id="detailConstraints"></ul>
+
+        <h2>Success metrics</h2>
+        <ul id="detailSuccessMetrics"></ul>
+
+        <div id="detailTags" class="tags"></div>
       </article>
 
       <aside class="detail-panel">
         <span class="badge case">CASE STUDY</span>
         <h2>Ready to solve it?</h2>
         <p>Submit your approach and receive professional feedback on your solution.</p>
-        <a class="primary button-link" href="solve-case-study.html?caseId=case-payment-scaling">Solve Case Study</a>
+        <a id="detailApplyLink" class="primary button-link" href="solve-case-study.html?evaluationType=General+expert+review">Solve + Expert Evaluation</a>
+        <a class="secondary button-link" href="contribute-case-study.html">Contribute a Case Study</a>
+        <a class="secondary button-link" href="contact.html?type=feedback">Send Feedback</a>
       </aside>
     </div>
   </main>
@@ -48,5 +59,94 @@
     <div class="logo">NESTYIN<span>CONNECT</span></div>
     <p>Real problems. Real skills. Real feedback.</p>
   </footer>
+
+  <script>
+    async function loadCaseStudyDetail() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id") || "case-payment-scaling";
+
+      try {
+        const response = await fetch(`content-template.json?v=${Date.now()}`, { cache: "no-store" });
+        const data = await response.json();
+        const item = data.caseStudies.find(entry => entry.id === id) || data.caseStudies[0];
+        const detail = item.detail || {};
+
+        document.title = `${item.title} — Nestyin Connect`;
+        document.getElementById("detailTitle").textContent = item.title;
+        document.getElementById("detailLead").textContent = detail.lead || item.description;
+        document.getElementById("detailCompany").textContent = item.company;
+        document.getElementById("detailChallenge").textContent = detail.challenge || item.description;
+
+        const requirements = document.getElementById("detailRequirements");
+        requirements.innerHTML = "";
+        (detail.requirements || [detail.focus || item.description]).forEach(line => {
+          const li = document.createElement("li");
+          li.textContent = line;
+          requirements.appendChild(li);
+        });
+
+        const deliverables = document.getElementById("detailDeliverables");
+        deliverables.innerHTML = "";
+        (item.deliverables || []).forEach(line => {
+          const li = document.createElement("li");
+          li.textContent = line;
+          deliverables.appendChild(li);
+        });
+
+        const constraints = document.getElementById("detailConstraints");
+        constraints.innerHTML = "";
+        (item.constraints || []).forEach(line => {
+          const li = document.createElement("li");
+          li.textContent = line;
+          constraints.appendChild(li);
+        });
+
+        const metrics = document.getElementById("detailSuccessMetrics");
+        metrics.innerHTML = "";
+        (item.successMetrics || []).forEach(line => {
+          const li = document.createElement("li");
+          li.textContent = line;
+          metrics.appendChild(li);
+        });
+
+        const metaSummary = document.getElementById("metaSummary");
+        metaSummary.replaceChildren();
+        [
+          ["Target level", item.targetLevel],
+          ["Evaluation focus", item.evaluationFocus],
+          ["Difficulty", item.difficulty]
+        ].forEach(([label, value]) => {
+          if (!value) {
+            return;
+          }
+          const chip = document.createElement("span");
+          chip.className = "detail-meta-chip";
+          const chipLabel = document.createElement("strong");
+          chipLabel.textContent = label;
+          const chipValue = document.createElement("span");
+          chipValue.textContent = value;
+          chip.append(chipLabel, chipValue);
+          metaSummary.appendChild(chip);
+        });
+
+        const tags = document.getElementById("detailTags");
+        tags.innerHTML = "";
+        (item.tags || []).forEach(tag => {
+          const span = document.createElement("span");
+          span.textContent = tag;
+          tags.appendChild(span);
+        });
+
+        const applyLink = document.getElementById("detailApplyLink");
+        applyLink.href = `${item.applicationPage}?caseId=${encodeURIComponent(item.id)}&evaluationType=General+expert+review`;
+      } catch (error) {
+        console.error("Failed to load case study detail:", error);
+        document.getElementById("detailTitle").textContent = "Case study unavailable";
+        document.getElementById("detailLead").textContent = "The selected case study could not be loaded.";
+      }
+    }
+
+    loadCaseStudyDetail();
+  </script>
 </body>
 </html>

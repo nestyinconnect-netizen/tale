@@ -4,15 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Case Studies — Nestyin Connect</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
-<body data-view="all">
+<body class="case-studies-page" data-view="all">
   <header class="navbar">
     <a class="logo" href="index.html">NESTYIN<span>CONNECT</span></a>
     <nav>
       <a href="index.html">Explore</a>
       <a class="active" href="case-studies.html">Case Studies</a>
       <a href="projects.html">Projects</a>
+      <a href="contribute-case-study.html">Contribute</a>
+      <a href="contact.html?type=feedback">Feedback</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
@@ -32,10 +35,19 @@
       <div class="section-header">
         <div>
           <div class="section-label purple">CASE STUDIES</div>
-          <h1>All case studies</h1>
+          <h1>All Case Studies</h1>
         </div>
       </div>
-      <div class="cards" id="caseStudyCards"></div>
+      <div class="case-browser">
+        <aside class="project-filter-sidebar">
+          <div class="filter-sidebar-heading">Filter case studies</div>
+          <div class="project-filter-bar" id="projectFilterBar"></div>
+        </aside>
+        <div class="project-results">
+          <div class="project-results-summary">Browse case studies by tag, company, or target role.</div>
+          <div class="cards" id="caseStudyCards"></div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -44,6 +56,6 @@
     <p>Real problems. Real skills. Real feedback.</p>
   </footer>
 
-  <script src="app.js?v=4"></script>
+  <script src="app.js?v=9"></script>
 </body>
 </html>

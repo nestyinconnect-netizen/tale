@@ -9,9 +9,41 @@
       "tags": ["Payments", "Backend", "AWS", "System Design"],
       "rating": 4.7,
       "attempts": 342,
-      "feedback": "Expert feedback",
+      "targetLevel": "Senior",
+      "evaluationFocus": "Backend / Cloud / System Design",
+      "difficulty": "High",
+      "deliverables": [
+        "Proposed system architecture",
+        "Latency and throughput analysis",
+        "Operational and recovery plan"
+      ],
+      "constraints": [
+        "Keep transactions reliable during peak load",
+        "Preserve auditability and security",
+        "Minimize downtime during incident recovery"
+      ],
+      "successMetrics": [
+        "Low transaction latency under peak load",
+        "Strong recovery and failover design",
+        "Clear trade-off reasoning"
+      ],
+      "rubric": {
+        "junior": ["Correct fundamentals", "Clear reasoning"],
+        "mid": ["Scalable design", "Operational awareness"],
+        "senior": ["Resilience", "Strong system design depth"],
+        "staff": ["Platform thinking", "Strategic trade-offs"]
+      },
       "detailPage": "case-study.html",
-      "applicationPage": "solve-case-study.html"
+      "applicationPage": "solve-case-study.html",
+      "detail": {
+        "lead": "A rapidly growing payment company is experiencing increasing latency during peak transaction periods.",
+        "challenge": "Design a resilient architecture that keeps transaction latency low as traffic grows, while preserving reliability, observability, and safe recovery during incidents.",
+        "requirements": [
+          "Design a scalable transaction-processing architecture for peak load conditions.",
+          "Reduce latency without compromising correctness or auditability of payments.",
+          "Handle failover, observability, and incident recovery in a production-grade payment platform."
+        ]
+      }
     },
     {
       "id": "case-recommendation-scale",
@@ -22,9 +54,41 @@
       "tags": ["AI", "ML", "Python", "Data"],
       "rating": 4.8,
       "attempts": 218,
-      "feedback": "Expert feedback",
+      "targetLevel": "Senior",
+      "evaluationFocus": "ML / Data / Distributed Systems",
+      "difficulty": "High",
+      "deliverables": [
+        "Recommendation architecture",
+        "Retrieval and ranking model approach",
+        "Freshness and latency plan"
+      ],
+      "constraints": [
+        "Serve millions of users with low latency",
+        "Maintain freshness without excessive compute cost",
+        "Handle cold-start and ranking quality"
+      ],
+      "successMetrics": [
+        "Fast recommendation delivery",
+        "Good personalization quality",
+        "Reasonable cost and freshness trade-off"
+      ],
+      "rubric": {
+        "junior": ["Basic understanding", "Clear design thinking"],
+        "mid": ["Scalable service design", "Trade-off awareness"],
+        "senior": ["Strong ranking and serving design", "System-level trade-offs"],
+        "staff": ["Product and platform leverage", "Long-term operating model"]
+      },
       "detailPage": "case-study.html",
-      "applicationPage": "solve-case-study.html"
+      "applicationPage": "solve-case-study.html",
+      "detail": {
+        "lead": "Design a recommendation engine capable of serving millions of users while keeping response times low.",
+        "challenge": "Build an architecture for user recommendations that balances personalization quality, throughput, freshness, and cost across a high-volume product surface.",
+        "requirements": [
+          "Recommend relevant products in real time for millions of users.",
+          "Design for low-latency serving with acceptable model freshness tradeoffs.",
+          "Address cold-start behavior, ranking quality, and system scalability."
+        ]
+      }
     },
     {
       "id": "case-cloud-cost-reduction",
@@ -35,9 +99,41 @@
       "tags": ["AWS", "DevOps", "FinOps"],
       "rating": 4.6,
       "attempts": 156,
-      "feedback": "Expert feedback",
+      "targetLevel": "Mid",
+      "evaluationFocus": "Cloud / DevOps / Cost Optimization",
+      "difficulty": "Medium",
+      "deliverables": [
+        "Cost analysis",
+        "Architecture optimization recommendations",
+        "Performance and reliability review"
+      ],
+      "constraints": [
+        "Reduce cloud costs without hurting user experience",
+        "Maintain reliability and maintainability",
+        "Prioritize measurable savings"
+      ],
+      "successMetrics": [
+        "Clear cost drivers identified",
+        "Strong optimization recommendations",
+        "Balanced performance and cost"
+      ],
+      "rubric": {
+        "junior": ["Good observation", "Basic reasoning"],
+        "mid": ["Strong cost trade-offs", "Operational thinking"],
+        "senior": ["Deep optimization strategy", "Production readiness"],
+        "staff": ["Platform-level cost decisions", "Long-term engineering leverage"]
+      },
       "detailPage": "case-study.html",
-      "applicationPage": "solve-case-study.html"
+      "applicationPage": "solve-case-study.html",
+      "detail": {
+        "lead": "A SaaS company wants to reduce its cloud bill by 30% without compromising application performance.",
+        "challenge": "Design a practical cost-reduction strategy that cuts infrastructure spend while preserving user experience, reliability, and engineering velocity.",
+        "requirements": [
+          "Identify the biggest cost drivers in the AWS estate.",
+          "Recommend workload or architecture optimizations with measurable savings.",
+          "Show how performance and operational reliability remain intact after optimization."
+        ]
+      }
     },
     {
       "id": "case-multitenant-saas",
@@ -48,9 +144,41 @@
       "tags": ["Architecture", "Backend", "SaaS"],
       "rating": 4.9,
       "attempts": 403,
-      "feedback": "Expert feedback",
+      "targetLevel": "Senior",
+      "evaluationFocus": "Architecture / Backend / Security",
+      "difficulty": "High",
+      "deliverables": [
+        "Tenant isolation model",
+        "Architecture diagram",
+        "Security and scaling trade-off narrative"
+      ],
+      "constraints": [
+        "Secure multi-tenant isolation",
+        "Scale across many customers",
+        "Keep operations manageable"
+      ],
+      "successMetrics": [
+        "Strong tenant isolation approach",
+        "Scalable design under load",
+        "Reasonable operational complexity"
+      ],
+      "rubric": {
+        "junior": ["Solid fundamentals", "Basic understanding"],
+        "mid": ["Good architecture thinking", "Security awareness"],
+        "senior": ["High-quality multi-tenant design", "Strong trade-offs"],
+        "staff": ["Platformization", "Long-term operating model"]
+      },
       "detailPage": "case-study.html",
-      "applicationPage": "solve-case-study.html"
+      "applicationPage": "solve-case-study.html",
+      "detail": {
+        "lead": "Design a secure and scalable architecture supporting thousands of business customers.",
+        "challenge": "Create a multi-tenant platform that isolates customer workloads while maintaining shared cost efficiency and operational simplicity.",
+        "requirements": [
+          "Support tenant isolation, access control, and security boundaries.",
+          "Design for scale, performance, and operational manageability.",
+          "Balance shared infrastructure efficiencies against reliability and data protection."
+        ]
+      }
     },
     {
       "id": "case-zero-downtime-migration",
@@ -61,9 +189,41 @@
       "tags": ["Databases", "Migration", "Reliability"],
       "rating": 4.7,
       "attempts": 127,
-      "feedback": "Expert feedback",
+      "targetLevel": "Senior",
+      "evaluationFocus": "Data / Reliability / Migration",
+      "difficulty": "High",
+      "deliverables": [
+        "Migration plan",
+        "Rollback strategy",
+        "Validation and operational runbook"
+      ],
+      "constraints": [
+        "Zero critical downtime",
+        "Preserve correctness and data integrity",
+        "Handle rollback safely"
+      ],
+      "successMetrics": [
+        "Low-risk migration plan",
+        "Rollback readiness",
+        "Strong operational detail"
+      ],
+      "rubric": {
+        "junior": ["Reasonable migration logic", "Basic risk awareness"],
+        "mid": ["Good phased plan", "Operational detail"],
+        "senior": ["High-quality zero-downtime thinking", "Strong risk management"],
+        "staff": ["Strategic platform migration", "Operating model depth"]
+      },
       "detailPage": "case-study.html",
-      "applicationPage": "solve-case-study.html"
+      "applicationPage": "solve-case-study.html",
+      "detail": {
+        "lead": "Plan a safe migration from a legacy database while the product continues serving customers.",
+        "challenge": "Move a critical system to a new database platform without compromising service availability, data integrity, or rollback safety.",
+        "requirements": [
+          "Design a migration strategy with minimal downtime and low risk.",
+          "Preserve correctness and data consistency across schema and workload changes.",
+          "Define rollback and operational protection measures for production rollback scenarios."
+        ]
+      }
     },
     {
       "id": "case-observability-platform",
@@ -74,9 +234,41 @@
       "tags": ["Observability", "Kubernetes", "SRE"],
       "rating": 4.5,
       "attempts": 94,
-      "feedback": "Expert feedback",
+      "targetLevel": "Mid",
+      "evaluationFocus": "SRE / Observability / Platform",
+      "difficulty": "Medium",
+      "deliverables": [
+        "Telemetry design",
+        "Incident visibility strategy",
+        "Operational recommendation set"
+      ],
+      "constraints": [
+        "Avoid noisy or expensive telemetry",
+        "Support distributed services",
+        "Improve debugging and incident response"
+      ],
+      "successMetrics": [
+        "Clear signal prioritization",
+        "Good incident response design",
+        "Manageable telemetry cost"
+      ],
+      "rubric": {
+        "junior": ["Basic observability understanding"],
+        "mid": ["Practical design", "Good signal selection"],
+        "senior": ["Strong system health design", "Incident readiness"],
+        "staff": ["Platform-wide telemetry strategy", "Operational leverage"]
+      },
       "detailPage": "case-study.html",
-      "applicationPage": "solve-case-study.html"
+      "applicationPage": "solve-case-study.html",
+      "detail": {
+        "lead": "Create a practical logging, metrics, and tracing strategy for a distributed service platform.",
+        "challenge": "Design a practical observability strategy to help engineers detect incidents quickly and understand system health across services.",
+        "requirements": [
+          "Choose the right signals, logs, metrics, and traces for system visibility.",
+          "Drive better incident response across a large distributed workload.",
+          "Balance cost and operational clarity without overwhelming teams with noisy telemetry."
+        ]
+      }
     },
     {
       "id": "case-real-time-fraud-detection",
@@ -87,9 +279,41 @@
       "tags": ["Payments", "Streaming", "Machine Learning"],
       "rating": 4.8,
       "attempts": 183,
-      "feedback": "Expert feedback",
+      "targetLevel": "Senior",
+      "evaluationFocus": "Streaming / ML / Payments",
+      "difficulty": "High",
+      "deliverables": [
+        "Streaming fraud detection pipeline",
+        "False-positive mitigation plan",
+        "Operational review and monitoring model"
+      ],
+      "constraints": [
+        "Low latency detection",
+        "Avoid blocking good users",
+        "Operate under noisy real-time data"
+      ],
+      "successMetrics": [
+        "Good fraud detection quality",
+        "Reliable low-latency processing",
+        "Strong safety and risk controls"
+      ],
+      "rubric": {
+        "junior": ["Basic understanding"],
+        "mid": ["Reasonable streaming design"],
+        "senior": ["Strong real-time trade-offs", "Model-quality awareness"],
+        "staff": ["Platform-level risk and trust model", "Long-term operating strategy"]
+      },
       "detailPage": "case-study.html",
-      "applicationPage": "solve-case-study.html"
+      "applicationPage": "solve-case-study.html",
+      "detail": {
+        "lead": "Design a low-latency fraud detection pipeline that protects transactions without blocking good customers.",
+        "challenge": "Build a streaming fraud detection system that can identify suspicious activities quickly while controlling false positives for legitimate customers.",
+        "requirements": [
+          "Process events with extremely low latency and high throughput.",
+          "Combine detection quality with a safe user experience and operational review flow.",
+          "Handle noisy data, model drift, and real-time response constraints."
+        ]
+      }
     },
     {
       "id": "case-global-content-delivery",
@@ -100,9 +324,41 @@
       "tags": ["CDN", "Performance", "Cloud"],
       "rating": 4.6,
       "attempts": 111,
-      "feedback": "Expert feedback",
+      "targetLevel": "Mid",
+      "evaluationFocus": "Performance / Cloud / CDN",
+      "difficulty": "Medium",
+      "deliverables": [
+        "Global delivery strategy",
+        "Latency and cost trade-off analysis",
+        "Regional failover plan"
+      ],
+      "constraints": [
+        "Improve the user experience globally",
+        "Control cloud and traffic costs",
+        "Manage failover and cache efficiency"
+      ],
+      "successMetrics": [
+        "Lower latency for global users",
+        "Better cost efficiency",
+        "Clear resilience plan"
+      ],
+      "rubric": {
+        "junior": ["Basic understanding"],
+        "mid": ["Good performance trade-offs"],
+        "senior": ["Strong delivery-system design"],
+        "staff": ["Global platform design and optimization"]
+      },
       "detailPage": "case-study.html",
-      "applicationPage": "solve-case-study.html"
+      "applicationPage": "solve-case-study.html",
+      "detail": {
+        "lead": "Improve global content delivery for a media service while controlling latency and infrastructure cost.",
+        "challenge": "Design a content delivery strategy that improves regional performance while managing cost, cache efficiency, and failover behavior across regions.",
+        "requirements": [
+          "Keep content available and fast for a global user base.",
+          "Reduce infrastructure cost without harming the customer experience.",
+          "Plan for regional outages, cache warming, and latency-sensitive traffic patterns."
+        ]
+      }
     },
     {
       "id": "case-secure-identity-platform",
@@ -113,9 +369,41 @@
       "tags": ["Security", "Identity", "OAuth"],
       "rating": 4.9,
       "attempts": 205,
-      "feedback": "Expert feedback",
+      "targetLevel": "Staff",
+      "evaluationFocus": "Security / Identity / Architecture",
+      "difficulty": "High",
+      "deliverables": [
+        "Identity architecture",
+        "Security model and trade-offs",
+        "Recovery and access-control design"
+      ],
+      "constraints": [
+        "Protect user accounts at scale",
+        "Balance usability and security",
+        "Support enterprise requirements"
+      ],
+      "successMetrics": [
+        "Strong security posture",
+        "Usable authentication flows",
+        "Clear operational guardrails"
+      ],
+      "rubric": {
+        "junior": ["Basic authentication understanding"],
+        "mid": ["Reasonable security design"],
+        "senior": ["Good identity-system depth"],
+        "staff": ["Security strategy and platform implications"]
+      },
       "detailPage": "case-study.html",
-      "applicationPage": "solve-case-study.html"
+      "applicationPage": "solve-case-study.html",
+      "detail": {
+        "lead": "Design an identity platform with secure authentication, authorization, and account recovery workflows.",
+        "challenge": "Create a secure, reliable identity system that protects customer accounts while keeping authentication experiences easy to use and easy to operate.",
+        "requirements": [
+          "Design identity flows for authentication, authorization, and account recovery.",
+          "Model security tradeoffs and failure recovery for production systems.",
+          "Support enterprise requirements while minimizing user friction and operational complexity."
+        ]
+      }
     },
     {
       "id": "case-supply-chain-forecasting",
@@ -126,9 +414,41 @@
       "tags": ["Data", "Forecasting", "Python"],
       "rating": 4.7,
       "attempts": 139,
-      "feedback": "Expert feedback",
+      "targetLevel": "Mid",
+      "evaluationFocus": "Data / Analytics / Forecasting",
+      "difficulty": "Medium",
+      "deliverables": [
+        "Demand forecasting approach",
+        "Inventory optimization logic",
+        "Operational trade-off explanation"
+      ],
+      "constraints": [
+        "Balance forecast accuracy and practicality",
+        "Handle uncertain demand and inventory trade-offs",
+        "Keep the solution actionable for business teams"
+      ],
+      "successMetrics": [
+        "Useful forecast quality",
+        "Practical operations model",
+        "Reasonable business impact"
+      ],
+      "rubric": {
+        "junior": ["Basic statistical thinking"],
+        "mid": ["Practical forecasting design"],
+        "senior": ["Strong modeling and trade-offs"],
+        "staff": ["Business and platform-level impact"]
+      },
       "detailPage": "case-study.html",
-      "applicationPage": "solve-case-study.html"
+      "applicationPage": "solve-case-study.html",
+      "detail": {
+        "lead": "Build a forecasting approach that helps retailers reduce stockouts while limiting excess inventory.",
+        "challenge": "Develop a scalable forecasting system that balances demand prediction quality with operational practicality for retail inventory planning.",
+        "requirements": [
+          "Model forecasting for uncertain demand patterns across products and stores.",
+          "Evaluate tradeoffs between forecast accuracy, operational constraints, and cost.",
+          "Design a solution that is actionable for supply-chain planning teams."
+        ]
+      }
     }
   ],
   "projects": [
@@ -141,8 +461,44 @@
       "company": "Sponsored by Acme Technologies",
       "tags": ["Backend", "AWS", "API", "System Design"],
       "level": "Intermediate",
+      "targetLevel": "Mid",
+      "roleCategories": ["Mid / SE3", "Senior", "Staff / Principal"],
+      "evaluationFocus": "Backend / API / Cloud",
+      "difficulty": "Medium",
+      "deliverables": [
+        "API design",
+        "Authentication and transaction model",
+        "Operational monitoring plan"
+      ],
+      "constraints": [
+        "Handle production-scale transactions safely",
+        "Keep authentication and payments secure",
+        "Support reliable monitoring"
+      ],
+      "successMetrics": [
+        "Clear throughput strategy",
+        "Safe transaction semantics",
+        "Strong operational visibility"
+      ],
+      "rubric": {
+        "junior": ["Correct beginner-level design"],
+        "mid": ["Reliable API design and trade-offs"],
+        "senior": ["Production-quality architecture"],
+        "staff": ["Platform-level scaling and governance"]
+      },
       "deadline": "Sep 28",
-      "evaluation": "Expert evaluation"
+      "evaluation": "Expert evaluation",
+      "detailPage": "project.html",
+      "applicationPage": "apply.html",
+      "detail": {
+        "lead": "Build a production-ready payment API with authentication, transaction processing and monitoring.",
+        "challenge": "Create a payment API that can handle volume spikes while remaining secure, observable, and easy to operate in production.",
+        "requirements": [
+          "Design secure payment endpoints and authentication flows.",
+          "Model transaction processing, idempotency, and reliability patterns.",
+          "Add monitoring and incident-readiness for production workloads."
+        ]
+      }
     },
     {
       "id": "project-enterprise-ai",
@@ -153,8 +509,44 @@
       "company": "Sponsored by Acme Technologies",
       "tags": ["AI", "NLP", "Python", "Machine Learning"],
       "level": "Advanced",
+      "targetLevel": "Senior",
+      "roleCategories": ["Senior", "Staff / Principal", "Manager 1 / Manager 2"],
+      "evaluationFocus": "AI / NLP / Product",
+      "difficulty": "High",
+      "deliverables": [
+        "Knowledge retrieval design",
+        "Answer quality and grounding plan",
+        "Operational trust and safety approach"
+      ],
+      "constraints": [
+        "Use enterprise knowledge safely",
+        "Keep answers correct and grounded",
+        "Improve trust for internal users"
+      ],
+      "successMetrics": [
+        "Useful answer quality",
+        "Strong grounding and trust",
+        "Clear operational safeguards"
+      ],
+      "rubric": {
+        "junior": ["Basic AI understanding"],
+        "mid": ["Reasonable retrieval design"],
+        "senior": ["Strong AI product design"],
+        "staff": ["Enterprise platform and trust strategy"]
+      },
       "application": "Resume application",
-      "evaluation": "Company review"
+      "evaluation": "Company review",
+      "detailPage": "project.html",
+      "applicationPage": "apply.html",
+      "detail": {
+        "lead": "Help build an NLP-powered internal knowledge assistant for enterprise teams.",
+        "challenge": "Design a practical AI assistant that retrieves company knowledge, answers work-related queries, and remains trusted by internal users.",
+        "requirements": [
+          "Create a retrieval and answer-generation workflow for enterprise knowledge.",
+          "Improve accuracy and trust with grounding, citation, and validation patterns.",
+          "Balance user experience, security, and operational maintainability."
+        ]
+      }
     },
     {
       "id": "project-realtime-analytics",
@@ -165,8 +557,44 @@
       "company": "DataFlow Labs",
       "tags": ["React", "Kafka", "Node.js"],
       "level": "Intermediate",
+      "targetLevel": "Mid",
+      "roleCategories": ["Entry Level / SE1 / SE2", "Mid / SE3", "Senior"],
+      "evaluationFocus": "Analytics / Streaming / Frontend",
+      "difficulty": "Medium",
+      "deliverables": [
+        "Streaming ingestion design",
+        "Real-time dashboard architecture",
+        "Operational monitoring proposal"
+      ],
+      "constraints": [
+        "High volume event processing",
+        "Provide timely analytics",
+        "Keep system easy to operate"
+      ],
+      "successMetrics": [
+        "Responsive dashboard experience",
+        "Reliable stream processing",
+        "Clear system observability"
+      ],
+      "rubric": {
+        "junior": ["Good foundational idea"],
+        "mid": ["Practical real-time design"],
+        "senior": ["Strong system trade-offs"],
+        "staff": ["Platform-level observability and growth"]
+      },
       "deadline": "Oct 05",
-      "evaluation": "Expert evaluation"
+      "evaluation": "Expert evaluation",
+      "detailPage": "project.html",
+      "applicationPage": "apply.html",
+      "detail": {
+        "lead": "Create a real-time analytics platform that processes high-volume event streams.",
+        "challenge": "Design a dashboard and data pipeline that can ingest, aggregate, and display live events with fast response times.",
+        "requirements": [
+          "Handle streaming data ingestion and real-time aggregation.",
+          "Provide a usable analytics experience supported by reliable backend processing.",
+          "Design for scale, latency, and operational visibility."
+        ]
+      }
     },
     {
       "id": "project-developer-productivity",
@@ -177,8 +605,44 @@
       "company": "Confidential Company",
       "tags": ["Developer Tools", "Automation", "Python"],
       "level": "Advanced",
+      "targetLevel": "Senior",
+      "roleCategories": ["Mid / SE3", "Senior", "Staff / Principal", "Manager 1 / Manager 2"],
+      "evaluationFocus": "Developer tools / Automation / UX",
+      "difficulty": "High",
+      "deliverables": [
+        "Automation workflow design",
+        "User experience and adoption plan",
+        "Tooling and maintenance model"
+      ],
+      "constraints": [
+        "Reduce repetitive work without complexity",
+        "Keep the tool easy to adopt",
+        "Support real engineering teams"
+      ],
+      "successMetrics": [
+        "Clear value for developers",
+        "Adoption-friendly workflow",
+        "Maintainable tool design"
+      ],
+      "rubric": {
+        "junior": ["Basic workflow thinking"],
+        "mid": ["Practical automation design"],
+        "senior": ["Strong product and engineering trade-offs"],
+        "staff": ["Platform and org-level leverage"]
+      },
       "application": "Resume application",
-      "evaluation": "Company review"
+      "evaluation": "Company review",
+      "detailPage": "project.html",
+      "applicationPage": "apply.html",
+      "detail": {
+        "lead": "Build an internal tool that helps engineering teams automate repetitive development workflows.",
+        "challenge": "Design a developer-focused workflow automation tool that reduces repetitive engineering work without creating tool sprawl.",
+        "requirements": [
+          "Identify repetitive developer tasks worth automating.",
+          "Build a tool with clear value, good UX, and maintainable architecture.",
+          "Support adoption and operational trust across engineering teams."
+        ]
+      }
     },
     {
       "id": "project-support-ai",
@@ -189,8 +653,44 @@
       "company": "SupportFlow",
       "tags": ["AI", "LLM", "Python"],
       "level": "Intermediate",
+      "targetLevel": "Mid",
+      "roleCategories": ["Entry Level / SE1 / SE2", "Mid / SE3", "Senior"],
+      "evaluationFocus": "AI / Support / Product",
+      "difficulty": "Medium",
+      "deliverables": [
+        "Support assistant workflow",
+        "Grounding and trust strategy",
+        "Supporter experience and safety plan"
+      ],
+      "constraints": [
+        "Balance helpfulness and correctness",
+        "Reduce hallucination risk",
+        "Support real support operations"
+      ],
+      "successMetrics": [
+        "Useful support response quality",
+        "Trust and safety safeguards",
+        "Good workflow adoption"
+      ],
+      "rubric": {
+        "junior": ["Basic AI concepts"],
+        "mid": ["Useful workflow and trust design"],
+        "senior": ["Thinking on quality and safety"],
+        "staff": ["Product and platform-level impact"]
+      },
       "deadline": "Oct 12",
-      "evaluation": "Expert evaluation"
+      "evaluation": "Expert evaluation",
+      "detailPage": "project.html",
+      "applicationPage": "apply.html",
+      "detail": {
+        "lead": "Build an AI assistant that helps support agents answer customer questions faster.",
+        "challenge": "Develop a support assistant that balances helpfulness, trust, and operational safety for high-volume customer interactions.",
+        "requirements": [
+          "Create a workflow for summarizing, retrieving, and responding to support requests.",
+          "Add safeguards to reduce hallucination and improve trustworthiness.",
+          "Make the system useful for front-line support teams in real operations."
+        ]
+      }
     },
     {
       "id": "project-enterprise-migration",
@@ -201,8 +701,44 @@
       "company": "Confidential Company",
       "tags": ["Data", "Cloud", "Migration"],
       "level": "Senior",
+      "targetLevel": "Senior",
+      "roleCategories": ["Senior", "Staff / Principal", "Manager 1 / Manager 2", "Senior Manager / Staff Manager"],
+      "evaluationFocus": "Data / Cloud / Migration",
+      "difficulty": "High",
+      "deliverables": [
+        "Migration roadmap",
+        "Risk and rollback strategy",
+        "Modernization and execution plan"
+      ],
+      "constraints": [
+        "Keep migration low-risk",
+        "Minimize downtime and disruption",
+        "Support future modernization goals"
+      ],
+      "successMetrics": [
+        "Strong risk mitigation",
+        "Clear migration phases",
+        "Long-term platform readiness"
+      ],
+      "rubric": {
+        "junior": ["Basic migration thinking"],
+        "mid": ["Reasonable phased design"],
+        "senior": ["Strong enterprise migration depth"],
+        "staff": ["Platform strategy and organizational execution"]
+      },
       "application": "Resume application",
-      "evaluation": "Company review"
+      "evaluation": "Company review",
+      "detailPage": "project.html",
+      "applicationPage": "apply.html",
+      "detail": {
+        "lead": "Help design a migration strategy for moving legacy enterprise data to a modern platform.",
+        "challenge": "Build a migration plan for a legacy enterprise data estate that minimizes risk while enabling modernization and future growth.",
+        "requirements": [
+          "Assess the existing environment and identify migration constraints.",
+          "Design a phased migration approach with low disruption and clear rollback strategies.",
+          "Balance correctness, future scalability, and incremental delivery."
+        ]
+      }
     }
   ]
 }

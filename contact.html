@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect the Team</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="index.html">NESTYIN<span>CONNECT</span></a>
+    <nav>
+      <a href="index.html">Explore</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="projects.html">Projects</a>
+      <a href="contribute-case-study.html">Contribute</a>
+      <a class="active" href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="application-page">
+    <div class="application-header">
+      <div id="messageLabel" class="section-label purple">CONTACT</div>
+      <h1 id="messageTitle">Connect the Team</h1>
+      <p id="messageIntro">Send us a message and the platform team will receive it by email.</p>
+    </div>
+
+    <form id="messageForm" class="application-form">
+      <input id="messageType" name="messageType" type="hidden" value="contact">
+      <div class="form-grid">
+        <label>
+          Name
+          <input name="name" type="text" autocomplete="name" required>
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" autocomplete="email" required>
+        </label>
+        <label>
+          Subject
+          <input id="messageSubject" name="subject" type="text" required>
+        </label>
+      </div>
+      <label>
+        Message
+        <textarea name="message" rows="8" placeholder="Write your message here." required></textarea>
+      </label>
+      <p class="form-note">Your message is sent directly to the platform coordinator by email.</p>
+      <button id="messageButton" class="primary submit-button" type="submit">Send Message</button>
+      <p id="messageStatus" class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <footer>
+    <div class="logo">NESTYIN<span>CONNECT</span></div>
+    <p>Real problems. Real skills. Real feedback.</p>
+  </footer>
+
+  <script src="contact.js"></script>
+</body>
+</html>
