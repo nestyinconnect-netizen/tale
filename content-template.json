@@ -3,7 +3,7 @@
     {
       "id": "case-payment-scaling",
       "showOnMain": true,
-      "title": "Scaling a cloud Platform",
+      "title": "Scaling a cloud payment  Platform",
       "description": "A rapidly growing payment company is experiencing increasing latency during peak transaction periods.",
       "company": "Acme Technologies",
       "tags": ["Payments", "Backend", "AWS", "System Design"],
